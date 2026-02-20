@@ -1,12 +1,19 @@
 <template>
-    <div>
-        <h3>Posts list</h3>
-        <post-item v-for="post in posts" :post="post" />
+    <div v-if="posts.length > 0">
+        <h2>Posts list</h2>
+        <TransitionGroup name="post-list">
+            <post-item 
+                v-for="post in posts" 
+                :post="post" 
+                :key="post.id"
+                @remove="$emit('remove', post)"
+            />
+        </TransitionGroup>
     </div>
+    <h2 v-else="posts.length === 0">Posts not found</h2>
 </template>
 <script>
 import PostItem from "@/components/PostItem.vue";
-
 export default {
     components: {
         PostItem
@@ -20,5 +27,14 @@ export default {
 }
 </script>
 <style scoped>
-
+    .post-list-move,
+    .post-list-enter-active,
+    .post-list-leave-active {
+        transition: all 0.5s ease;
+    }
+    .post-list-leave-to, 
+    .post-list-enter-from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
 </style>
