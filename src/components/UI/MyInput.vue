@@ -26,6 +26,6 @@ export default {
         border: 1px solid #A47864;
         padding: 10px 15px;
         margin-top: 15px;
-        margin-left: 10px;
+        margin-bottom   : 10px;
     }
 </style>
