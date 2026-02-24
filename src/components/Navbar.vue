@@ -3,6 +3,8 @@
         <div @click="$router.push('/')" style="cursor: pointer;"><strong>Vue 3</strong></div>
         <div class="navbar__btns">
             <my-button @click="$router.push('/posts')" class="nav__btn">Posts</my-button>
+            <my-button @click="$router.push('/store')" class="nav__btn">Store</my-button>
+            <my-button @click="$router.push('/composition')" class="nav__btn">Composition</my-button>
             <my-button @click="$router.push('/about')" class="nav__btn">About</my-button>
         </div>
     </div>

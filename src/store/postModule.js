@@ -61,7 +61,7 @@ export const postModule = {
                 commit('setTotalPages', Math.ceil(response.headers['x-total-count'] / state.limit));
                 commit('setPosts', response.data); 
             } catch (error) {
-                alert(error);
+                console.log(error);
             } finally {
                 commit('setLoading', false);
             }
@@ -75,10 +75,10 @@ export const postModule = {
                 _limit: state.limit,
                 }
                 });
-                commit('totalPages', Math.ceil(response.headers['x-total-count'] / this.limit)); 
-                commit('setPosts', [...this.posts, ...response.data]);
+                commit('totalPages', Math.ceil(response.headers['x-total-count'] / state.limit)); 
+                commit('setPosts', [...stats.posts, ...response.data]);
             } catch (error) {
-                alert(error);
+                console.log(error);
             }
         },
     },
